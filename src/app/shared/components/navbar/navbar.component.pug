@@ -1,0 +1,13 @@
+doctype
+div.item__container(
+  *ngFor = 'let item of items'
+  )
+  a.item__link(
+    routerLinkActive = 'active',
+    [routerLink] = 'item.href'
+    )
+    img.item__icon(
+      [src] = 'item.icon'
+      )
+    p.item__text
+      | {{ item.text }}

@@ -1,0 +1,62 @@
+doctype
+aside.aside
+  app-aside(
+    [items] = 'asideItems'
+    )
+article.article
+  header.header__container
+    h3.header
+      | {{ data.header }}
+    span.line
+  app-search-form(
+    [items] = 'data.search',
+    (search) = 'onSearch($event)'
+  )
+  div
+    header
+      app-row(
+        appColor = 'label',
+        [row] = 'data.rowsHeader',
+        [up] = 'true'
+        )
+    article
+      div(
+        *ngFor = 'let item of filtredItems'
+        )
+        app-row(
+          [row] = 'item',
+          [message] = 'data.message',
+          [warning] = 'data.warning',
+          appHover
+          )
+    section.pages__container
+      div.arrow__container
+        img.left-arrow(
+          (click) = `changePage(page - 1)`,
+          [src] = 'data.pagination.leftArrow'
+        )
+      div.page__container(
+        *ngFor = 'let p of pages'
+        )
+        input.page__input(
+          type = 'button',
+          [value] = 'p',
+          (click) = `changePage(p)`,
+          [ngClass] = `{ 'page__active': p == page }`
+          )
+      div.arrow__container
+        img.right-arrow(
+          (click) = `changePage(page + 1)`,
+          [src] = 'data.pagination.rightArrow'
+        )
+  div(
+    style = 'display: block;'
+  )
+    canvas(
+      baseChart,
+      [datasets] = 'barChartData',
+      [labels] = 'barChartLabels',
+      [options] = 'barChartOptions',
+      [legend] = 'barChartLegend',
+      [chartType] = 'barChartType'
+    )

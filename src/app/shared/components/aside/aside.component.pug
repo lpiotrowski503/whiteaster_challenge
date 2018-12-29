@@ -1,0 +1,8 @@
+div.item__container(
+  *ngFor = 'let item of items'
+  )
+  span.item__icon
+  p.item__text
+    | {{ item.text }}
+  p.item__total
+    | {{ item.total }}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="container">
+    <label class="label">{{  items.projectName  }}</label>
+    <input class="input" ngModel name="projectName" #projectName="ngModel">
+  </div>
+  <div class="container">
+    <label class="label">{{  items.projectNumber  }}</label>
+    <input class="input" ngModel name="projectNumber" #projectNumber="ngModel">
+  </div>
+  <div class="container">
+    <label class="label">{{  items.status  }}</label>
+    <select class="select" ngModel="Wszystkie" name="status" #status="ngModel">
+      <option class="option" value="Wszystkie">Wszystkie</option>
+      <option class="option" value="W trakcie">W trakcie</option>
+      <option class="option" value="Zaplanowany">Zaplanowany</option>
+      <option class="option" value="Zakończony">Zakończony</option>
+    </select>
+  </div>
+  <div class="container">
+    <button class="search__btn" type="submit"><img class="search__icon" src="assets/icons/search.svg"></button>
+  </div>
+</form>

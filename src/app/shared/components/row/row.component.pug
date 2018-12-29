@@ -1,0 +1,25 @@
+doctype
+div.container__name
+  p.name
+    | {{ up ? ( row.projectName  | uppercase ) : ( row.projectName ) }}
+div.container__number
+  p.number
+    | {{  up ? ( row.projectNumber  | uppercase ) : ( row.projectNumber ) }}
+div.container__status
+  p.status
+    | {{  up ? ( row.status  | uppercase ) : ( row.status ) }}
+div.container__harmonogram
+  p.harmonogram(
+    [appColor] = 'row.harmonogram'
+    )
+    | {{ up ? ( row.harmonogram  | uppercase ) : ( row.harmonogram ) }}
+div.container__message
+  img.message(
+    *ngIf = 'row.message == true || row.message == false',
+    [src] = 'row.message ? message.on : message.off'
+    )
+div.container__warning
+  img.warning(
+    *ngIf = 'row.warning == true || row.warning == false',
+    [src] = 'row.warning ? warning.on : warning.off'
+    )

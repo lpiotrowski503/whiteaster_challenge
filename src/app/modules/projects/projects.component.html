@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<aside class="aside">
+  <app-aside [items]="asideItems"></app-aside>
+</aside>
+<article class="article">
+  <header class="header__container">
+    <h3 class="header">{{ data.header }}</h3><span class="line"></span>
+  </header>
+  <app-search-form [items]="data.search" (search)="onSearch($event)"></app-search-form>
+  <div>
+    <header>
+      <app-row appColor="label" [row]="data.rowsHeader" [up]="true"></app-row>
+    </header>
+    <article>
+      <div *ngFor="let item of filtredItems">
+        <app-row [row]="item" [message]="data.message" [warning]="data.warning" appHover></app-row>
+      </div>
+    </article>
+    <section class="pages__container">
+      <div class="arrow__container"><img class="left-arrow" (click)="changePage(page - 1)" [src]="data.pagination.leftArrow"></div>
+      <div class="page__container" *ngFor="let p of pages">
+        <input class="page__input" type="button" [value]="p" (click)="changePage(p)" [ngClass]="{ 'page__active': p == page }">
+      </div>
+      <div class="arrow__container"><img class="right-arrow" (click)="changePage(page + 1)" [src]="data.pagination.rightArrow"></div>
+    </section>
+  </div>
+  <div style="display: block;">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+  </div>
+</article>

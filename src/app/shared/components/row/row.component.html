@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div class="container__name">
+  <p class="name">{{ up ? ( row.projectName  | uppercase ) : ( row.projectName ) }}</p>
+</div>
+<div class="container__number">
+  <p class="number">{{  up ? ( row.projectNumber  | uppercase ) : ( row.projectNumber ) }}</p>
+</div>
+<div class="container__status">
+  <p class="status">{{  up ? ( row.status  | uppercase ) : ( row.status ) }}</p>
+</div>
+<div class="container__harmonogram">
+  <p class="harmonogram" [appColor]="row.harmonogram">{{ up ? ( row.harmonogram  | uppercase ) : ( row.harmonogram ) }}</p>
+</div>
+<div class="container__message"><img class="message" *ngIf="row.message == true || row.message == false" [src]="row.message ? message.on : message.off"></div>
+<div class="container__warning"><img class="warning" *ngIf="row.warning == true || row.warning == false" [src]="row.warning ? warning.on : warning.off"></div>

@@ -1,0 +1,52 @@
+doctype
+form.form(
+  (ngSubmit) = 'onSubmit(form)',
+  #form = 'ngForm'
+)
+  div.container
+    label.label
+      | {{  items.projectName  }}
+    input.input(
+      ngModel,
+      name = 'projectName',
+      #projectName = 'ngModel'
+    )
+  div.container
+    label.label
+      | {{  items.projectNumber  }}
+    input.input(
+      ngModel,
+      name = 'projectNumber',
+      #projectNumber = 'ngModel'
+    )
+  div.container
+    label.label
+      | {{  items.status  }}
+    select.select(
+      ngModel = 'Wszystkie',
+      name = 'status',
+      #status = 'ngModel'
+    )
+      option.option(
+        value = 'Wszystkie'
+        )
+        | Wszystkie
+      option.option(
+        value = 'W trakcie'
+        )
+        | W trakcie
+      option.option(
+        value = 'Zaplanowany'
+        )
+        | Zaplanowany
+      option.option(
+        value = 'Zakończony'
+        )
+        | Zakończony
+  div.container
+    button.search__btn(
+      type = 'submit'
+      )
+      img.search__icon(
+        src = 'assets/icons/search.svg'
+        )

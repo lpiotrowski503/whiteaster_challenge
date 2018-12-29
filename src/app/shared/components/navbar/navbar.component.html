@@ -1,0 +1,3 @@
+<!DOCTYPE html>
+<div class="item__container" *ngFor="let item of items"><a class="item__link" routerLinkActive="active" [routerLink]="item.href"><img class="item__icon" [src]="item.icon">
+    <p class="item__text">{{ item.text }}</p></a></div>
