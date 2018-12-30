@@ -1,6 +1,6 @@
 doctype
 div.item__container(
-  *ngFor = 'let item of items'
+  *ngFor = 'let item of items; let i = index'
   )
   a.item__link(
     routerLinkActive = 'active',
@@ -11,3 +11,8 @@ div.item__container(
       )
     p.item__text
       | {{ item.text }}
+    div.item-number__container(
+      *ngIf = 'i == 0'
+      )
+      p.item-number
+        | 5

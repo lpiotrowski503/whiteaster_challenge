@@ -10,11 +10,6 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./projects.component.sass']
 })
 export class ProjectsComponent implements OnInit {
-  barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  }
-
   asideItems = this.store.asideItems
   data = this.store.data
   page = 1
@@ -50,9 +45,37 @@ export class ProjectsComponent implements OnInit {
     this.pages = this.pagination.setPages(this.searched, this.filtredItems)
   }
 
+  chartFiltred(filter, arr: any[]) {
+    return arr.filter((element: any) => {
+      if (element.harmonogram.includes(filter)) {
+        return element
+      }
+    })
+  }
+
+  setChartsData() {
+    this.store.asideItems[0].total[0] = this.items.length
+    this.store.asideItems[1].total[1] = this.items.length
+    this.store.asideItems[1].total[0] = this.chartFiltred(
+      'W terminie',
+      this.items
+    ).length
+    this.store.asideItems[2].total[1] = this.items.length
+    this.store.asideItems[2].total[0] = this.chartFiltred(
+      'Opóźniony',
+      this.items
+    ).length
+    this.store.asideItems[3].total[1] = this.items.length
+    this.store.asideItems[3].total[0] = this.chartFiltred(
+      'Przed czasem',
+      this.items
+    ).length
+  }
+
   ngOnInit() {
     this.random.randomLoop(50, this.items)
     this.filtredItems = this.pagination.initPage(this.page, this.items)
     this.pages = this.pagination.setPages(this.items, this.filtredItems)
+    this.setChartsData()
   }
 }

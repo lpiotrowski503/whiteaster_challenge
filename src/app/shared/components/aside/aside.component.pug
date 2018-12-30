@@ -1,8 +1,27 @@
 div.item__container(
-  *ngFor = 'let item of items'
+  *ngFor = 'let item of items; let i = index'
   )
-  span.item__icon
   p.item__text
-    | {{ item.text }}
-  p.item__total
-    | {{ item.total }}
+    | {{ item.text[0] | uppercase }}
+  p.item__total(
+    *ngIf = 'i == 0'
+    )
+    | {{ item.total[0] }}
+  div.canvas__container(
+    *ngIf = 'i > 0'
+    )
+    p.item__total(
+    *ngIf = 'i > 0'
+    )
+      | {{ item.total[0] }}
+    p.item__procent
+      | {{ procent(item.total[0]) }}
+    canvas.canvas(
+      baseChart,
+      [data] = 'item.total',
+      [labels] = 'item.text',
+      [chartType] = 'chartType',
+      [legend] = 'chartLegend',
+      [colors] = 'chartColors',
+      [options]="chartOptions"
+      )

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 })
 export class RandomService {
   randomArrayStatus = ['Zaplanowany', 'W trakcie', 'Zakończony']
-  randomArrayHarmonogram = ['Opóźniony', 'W terminie']
+  randomArrayHarmonogram = ['Opóźniony', 'W terminie', 'Przed czasem']
   randomArrayBool = [true, false]
 
   constructor() {}

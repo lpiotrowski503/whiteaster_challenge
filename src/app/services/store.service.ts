@@ -6,20 +6,20 @@ import { Injectable } from '@angular/core'
 export class StoreService {
   asideItems = [
     {
-      text: 'Aktywne Projekty',
-      total: 38
+      text: ['Aktywne Projekty', ''],
+      total: []
     },
     {
-      text: 'W terminie',
-      total: 31
+      text: ['W terminie', ''],
+      total: []
     },
     {
-      text: 'Opóźnione',
-      total: 4
+      text: ['Opóźnione', ''],
+      total: []
     },
     {
-      text: 'Przed czasem',
-      total: 3
+      text: ['Przed czasem', ''],
+      total: []
     }
   ]
 

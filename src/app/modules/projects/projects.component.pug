@@ -49,14 +49,7 @@ article.article
           (click) = `changePage(page + 1)`,
           [src] = 'data.pagination.rightArrow'
         )
-  div(
-    style = 'display: block;'
-  )
-    canvas(
-      baseChart,
-      [datasets] = 'barChartData',
-      [labels] = 'barChartLabels',
-      [options] = 'barChartOptions',
-      [legend] = 'barChartLegend',
-      [chartType] = 'barChartType'
+  div.add__container
+    img.add(
+      src = 'assets/icons/add.svg'
     )

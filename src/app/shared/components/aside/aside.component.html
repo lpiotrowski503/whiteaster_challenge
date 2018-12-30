@@ -1,5 +1,10 @@
 
-<div class="item__container" *ngFor="let item of items"><span class="item__icon"></span>
-  <p class="item__text">{{ item.text }}</p>
-  <p class="item__total">{{ item.total }}</p>
+<div class="item__container" *ngFor="let item of items; let i = index">
+  <p class="item__text">{{ item.text[0] | uppercase }}</p>
+  <p class="item__total" *ngIf="i == 0">{{ item.total[0] }}</p>
+  <div class="canvas__container" *ngIf="i &gt; 0">
+    <p class="item__total" *ngIf="i &gt; 0">{{ item.total[0] }}</p>
+    <p class="item__procent">{{ procent(item.total[0]) }}</p>
+    <canvas class="canvas" baseChart="baseChart" [data]="item.total" [labels]="item.text" [chartType]="chartType" [legend]="chartLegend" [colors]="chartColors" [options]="chartOptions"></canvas>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 \:host
   display: flex
+  position: relative
   flex: 1 0 auto
   background: #f3f3f3
   color: #3d3d3d
@@ -15,7 +16,7 @@
     flex-grow: 5
 
     .header__container
-      padding: 20px 10px 30px 10px
+      padding: 20px 10px
 
       .header
         padding: 5px 0
@@ -55,3 +56,16 @@
         .right-arrow
           cursor: pointer
           height: 14px
+
+    .add__container
+      display: flex
+      position: absolute
+      top: 0
+      right: 0
+
+      .add
+        display: block
+        height: 24px
+        width: 24px
+        padding: 12px
+        background: #ff9900

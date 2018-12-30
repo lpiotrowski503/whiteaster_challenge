@@ -1,23 +1,52 @@
 \:host
   min-height: 100%
   background: #2b265b
-  color: #b1b0c0
-
+  color: #fff
+  box-sizing: border-box
 
   .item__container
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    padding: 40px 10px
-    margin: 10px
+    margin: 15px
+    min-height: 140px
+    min-width: 250px
+
+    &:nth-child(1)
+
+      .item__text
+
+      .item__total
+        padding: 10px
+        font-size: 28px
+        color: #ff9900
 
     &:nth-child(n + 2)
       background: #372f80
 
-    .item__icon
+      .item__text
+        letter-spacing: 1px
+        font-size: 12px
+        padding-top: 20px
 
+      .item__total
+        position: absolute
+        transform: translateY(-5px)
+        color: #ff9900
+        font-size: 20px
 
-    .item__text
+      .item__procent
+        position: absolute
+        transform: translateY(15px)
+        font-size: 12px
 
+    .canvas__container
+      display: flex
+      justify-content: center
+      align-items: center
+      padding: 10px
 
+      .canvas
+        height: 75px
+        width:  150px
